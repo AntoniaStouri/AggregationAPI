@@ -1,8 +1,14 @@
+using AggregationAPI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddHttpClient<WeatherService>();
+builder.Services.AddHttpClient<NewsService>();
+builder.Services.AddHttpClient<CountriesService>();
+builder.Services.AddScoped<AggregationService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
