@@ -10,9 +10,9 @@ namespace AggregationAPI.Controllers
         private readonly IAggregationService _aggregationService = aggregationService;
 
         [HttpGet("aggregate")]
-        public async Task<IActionResult> GetAggregatedData([FromQuery] string city, [FromQuery] string title,  [FromQuery] string region)
+        public async Task<IActionResult> GetAggregatedData([FromQuery] string city, [FromQuery] string title, [FromQuery] string region)
         {
-            var data = await _aggregationService.GetAggregatedDataAsync(city,title,  region);
+            var data = await _aggregationService.GetAggregatedDataAsync(city,title,region);
             return Ok(data);
         }
     }

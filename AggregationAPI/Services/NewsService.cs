@@ -12,23 +12,25 @@ namespace AggregationAPI.Services
     {
         private readonly HttpClient _httpClient;
         private readonly IMemoryCache _cache;
+        private readonly string _apiKey;
 
-        public NewsService(HttpClient httpClient, IMemoryCache cache)
+        public NewsService(HttpClient httpClient, IConfiguration configuration, IMemoryCache cache)
         {
             _httpClient = httpClient;
+            _apiKey = configuration["NewsAPIKey"];
             _cache = cache;
         }
 
-        public async Task<List<News>> GetNewsAsync(string topic)
+        public async Task<List<News>> GetNewsAsync(string title)
         {
-            if (_cache.TryGetValue($"news_{topic}", out List<News> cachedNews))
+            if (_cache.TryGetValue($"news_{title}", out List<News> cachedNews))
             {
                 return cachedNews;
             }
 
             try
             {
-                var response = await _httpClient.GetStringAsync($"https://newsapi.org/v2/everything?q=tesla&apiKey=6456d9e1bbd94ab19b7e07af6f30c39c");
+                var response = await _httpClient.GetStringAsync($"https://newsapi.org/v2/everything?q={title}&apiKey={_apiKey}");
                 var jsonDoc = JsonDocument.Parse(response);
 
                 var news = new List<News>();
@@ -44,7 +46,7 @@ namespace AggregationAPI.Services
                         PublishedAt = article.GetProperty("publishedAt").GetDateTime()
                     });
                 }
-                _cache.Set($"news_{topic}", news, TimeSpan.FromMinutes(1));
+                _cache.Set($"news_{title}", news, TimeSpan.FromMinutes(1));
 
                 return news;
             }
