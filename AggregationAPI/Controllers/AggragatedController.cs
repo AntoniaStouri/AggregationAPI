@@ -1,4 +1,5 @@
-﻿using AggregationAPI.Services;
+﻿using AggregationAPI.Models;
+using AggregationAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AggregationAPI.Controllers
@@ -10,12 +11,12 @@ namespace AggregationAPI.Controllers
         private readonly IAggregationService _aggregationService = aggregationService;
 
         [HttpGet("aggregate")]
-        public async Task<IActionResult> GetAggregatedData([FromQuery] string city, [FromQuery] string title, [FromQuery] string region)
+        public async Task<IActionResult> GetAggregatedData([FromQuery] string city, [FromQuery] string title, [FromQuery] string region, [FromQuery] string? sortBy, [FromQuery] string? filterBy)
         {
-            var data = await _aggregationService.GetAggregatedDataAsync(city,title,region);
+            var data = await _aggregationService.GetAggregatedDataAsync(city, title, region, sortBy, filterBy);
             return Ok(data);
         }
-    }
 
+    }
 }
 
