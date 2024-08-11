@@ -5,9 +5,9 @@ namespace AggregationAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AggragatedController(AggregationService aggregationService) : ControllerBase
+    public class AggragatedController(IAggregationService aggregationService) : ControllerBase
     {
-        private readonly AggregationService _aggregationService = aggregationService;
+        private readonly IAggregationService _aggregationService = aggregationService;
 
         [HttpGet("aggregate")]
         public async Task<IActionResult> GetAggregatedData([FromQuery] string city, [FromQuery] string title,  [FromQuery] string region)

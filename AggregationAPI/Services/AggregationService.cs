@@ -2,13 +2,18 @@
 
 namespace AggregationAPI.Services
 {
-    public class AggregationService
+    public interface IAggregationService
     {
-        private readonly WeatherService _weatherService;
-        private readonly NewsService _newsService;
-        private readonly CountriesService _countriesService;
+        Task<AggregatedData> GetAggregatedDataAsync(string city, string title, string region);
+    }
 
-        public AggregationService(WeatherService weatherService, NewsService newsService, CountriesService countriesService)
+    public class AggregationService : IAggregationService
+    {
+        private readonly IWeatherService _weatherService;
+        private readonly INewsService _newsService;
+        private readonly ICountriesService _countriesService;
+
+        public AggregationService(IWeatherService weatherService, INewsService newsService, ICountriesService countriesService)
         {
             _weatherService = weatherService;
             _newsService = newsService;
