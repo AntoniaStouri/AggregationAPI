@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AggregationAPI", "AggregationAPI\AggregationAPI.csproj", "{5CFFAE18-FA56-41D7-A31F-B158839F9C03}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AggregationAPI.Test", "AggregationTest\AggregationAPI.Test.csproj", "{1BE9FD34-D14E-41A4-AA4F-80A1AABC73A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AggregationAPI.Test", "AggregationAPI.Test\AggregationAPI.Test.csproj", "{53DAB795-ADFA-427E-8B98-5B7B63300404}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{5CFFAE18-FA56-41D7-A31F-B158839F9C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CFFAE18-FA56-41D7-A31F-B158839F9C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CFFAE18-FA56-41D7-A31F-B158839F9C03}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1BE9FD34-D14E-41A4-AA4F-80A1AABC73A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1BE9FD34-D14E-41A4-AA4F-80A1AABC73A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1BE9FD34-D14E-41A4-AA4F-80A1AABC73A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1BE9FD34-D14E-41A4-AA4F-80A1AABC73A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53DAB795-ADFA-427E-8B98-5B7B63300404}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53DAB795-ADFA-427E-8B98-5B7B63300404}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53DAB795-ADFA-427E-8B98-5B7B63300404}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53DAB795-ADFA-427E-8B98-5B7B63300404}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

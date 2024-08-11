@@ -1,4 +1,4 @@
-namespace AggregationTest
+namespace AggregationAPI.Test
 {
     public class UnitTest1
     {
