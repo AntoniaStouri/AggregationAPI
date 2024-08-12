@@ -17,7 +17,6 @@ namespace AggregationAPI.Services
         private readonly HttpClient _httpClient;
         private readonly string _apiKey;
         private readonly IMemoryCache _cache;
-        private AggregatedStatistics _statistics = new();
         private readonly string _statisticsCacheKey = "WeatherStatistics";
         private readonly IMemoryCache _statisticsCache;
 
