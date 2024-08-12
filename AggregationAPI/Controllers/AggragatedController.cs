@@ -17,6 +17,13 @@ namespace AggregationAPI.Controllers
             return Ok(data);
         }
 
+        [HttpGet("statistics")]
+        public IActionResult GetStatistics()
+        {
+            var statistics = _aggregationService.GetStatisticsAsync();
+            return Ok(statistics);
+        }
+
     }
 }
 

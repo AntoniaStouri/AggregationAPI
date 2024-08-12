@@ -1,10 +1,12 @@
 ﻿using AggregationAPI.Models;
+using static AggregationAPI.Models.Statistics;
 
 namespace AggregationAPI.Services
 {
     public interface IAggregationService
     {
         Task<AggregatedData> GetAggregatedDataAsync(string city, string title, string region, string sortBy, string filterBy);
+        Task<AggregatedStatistics> GetStatisticsAsync();
     }
 
     public class AggregationService : IAggregationService
@@ -54,6 +56,20 @@ namespace AggregationAPI.Services
             }
 
             return country;
+        }
+
+        public async Task<AggregatedStatistics> GetStatisticsAsync()
+        {
+            var weatherStats = _weatherService.GetStatistics();
+            var newsStats = _newsService.GetStatistics();
+            var countriesStats = _countriesService.GetStatistics();
+
+            return new AggregatedStatistics
+            {
+                WeatherStatistics = weatherStats.WeatherStatistics,
+                NewsStatistics = newsStats.NewsStatistics,
+                CountriesStatistics = countriesStats.CountriesStatistics
+            };
         }
     }
 }
