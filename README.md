@@ -33,7 +33,7 @@ To use the external APIs, you need to configure the API keys in your application
 - sortBy (string, optional): The sorting order of the aggregated data. Possible values are:
   - name – Sort by name.
   - population – Sort by population.
-- filterBy (string, optional): The filter criteria for the aggregated data. Filtering can be by name or population values.
+- filterBy (string, optional): The filter criteria for the aggregated data. Filtering can be by name value.
   
 #### Success Response:
 
