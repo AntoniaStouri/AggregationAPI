@@ -64,7 +64,7 @@ namespace AggregationAPI.Services
             }
             catch (HttpRequestException ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception($"An internal error occurred while processing the request,{ex.Message}");
             }
         }
 
